@@ -7,6 +7,6 @@ TEST(SanityCheck, AmIInsane) {
 }
 
 TEST(SmallTests, TestOnThree) {
-  int result = square(3);
+  int result = ProjectName::square(3);
   EXPECT_EQ(3*3, result);
 }

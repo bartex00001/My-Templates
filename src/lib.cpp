@@ -1,6 +1,6 @@
 #include <ProjectName/lib.hpp>
 
-int square(int n)
+int ProjectName::square(int n)
 {
-    return n*n;
+    return n * n;
 }
