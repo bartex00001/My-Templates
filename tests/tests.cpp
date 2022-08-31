@@ -6,7 +6,8 @@ TEST(SanityCheck, AmIInsane) {
   EXPECT_EQ(1, 1);
 }
 
-TEST(SmallTests, TestOnThree) {
-  int result = ProjectName::square(3);
-  EXPECT_EQ(3*3, result);
+TEST(CorrectnessTest, SmallTestForSquareFunction) {
+  int expected = 2*2;
+  int actual = ProjectName::square(2);
+  EXPECT_EQ(actual, expected);
 }
