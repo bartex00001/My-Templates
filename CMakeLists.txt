@@ -6,6 +6,7 @@ project(
     LANGUAGES CXX 
     VERSION 0.1 
     DESCRIPTION "A template for cmake projects")
+    
 
 # Set global properties and tests only in the root of the project
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
@@ -22,10 +23,12 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     include(CTest)
 endif()
 
+
 include(FetchContent)
 
 # Fetch additional modules here
 # ...
+
 
 # Automatically download and update submodules
 find_package(Git QUIET)
@@ -43,12 +46,11 @@ if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
     endif()
 endif()
 
+
 add_subdirectory(src)
 
 add_subdirectory(apps)
 
-# Add googletest as a submodule via git
-# git submodule add git@github.com:google/googletest.git extern/googletest
 
 # Add tests only from root
 option(PACKAGE_TESTS "Build the tests" ON)
