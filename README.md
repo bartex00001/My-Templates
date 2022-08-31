@@ -1,2 +1,2 @@
-# CMake-templates
-Templates for projects using CMake
+# CMake template - submodule
+
