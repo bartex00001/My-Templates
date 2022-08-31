@@ -1,4 +1,7 @@
+# Two arguments are necessary because we need to grt to the root
 add_subdirectory("${PROJECT_SOURCE_DIR}/extern/googletest" "extern/googletest")
+
+# Cleaner googletest build
 mark_as_advanced(
     BUILD_GMOCK BUILD_GTEST BUILD_SHARED_LIBS
     gmock_build_tests gtest_build_samples gtest_build_tests
@@ -9,6 +12,7 @@ set_target_properties(gtest PROPERTIES FOLDER extern)
 set_target_properties(gtest_main PROPERTIES FOLDER extern)
 set_target_properties(gmock PROPERTIES FOLDER extern)
 set_target_properties(gmock_main PROPERTIES FOLDER extern)
+
 
 add_executable(tests tests.cpp)
 
