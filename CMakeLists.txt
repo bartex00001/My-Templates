@@ -24,15 +24,6 @@ endif()
 
 include(FetchContent)
 
-# Add googletest
-FetchContent_Declare(
-  googletest
-  GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG        release-1.12.1
-)
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
-
 # Fetch additional modules here
 # ...
 
@@ -40,7 +31,13 @@ add_subdirectory(src)
 
 add_subdirectory(apps)
 
+# Add googletest as a submodule via git
+# git submodule add git@github.com:google/googletest.git extern/googletest
+
 # Add tests only from root
-if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+option(PACKAGE_TESTS "Build the tests" ON)
+if(PACKAGE_TESTS)
+    enable_testing()
+    include(GoogleTest)
     add_subdirectory(tests)
 endif()
