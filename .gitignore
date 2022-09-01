@@ -1,2 +1,7 @@
 build/*
 build/
+
+# Ignore Visual Studio files
+out/
+CMakeSettings.json
+.vs/
