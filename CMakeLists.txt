@@ -52,10 +52,11 @@ add_subdirectory(src)
 add_subdirectory(apps)
 
 
-# Add tests only from root
+# Add an option to not include tests
 option(PACKAGE_TESTS "Build the tests" ON)
 if(PACKAGE_TESTS)
     enable_testing()
+	set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
     include(GoogleTest)
     add_subdirectory(tests)
 endif()
