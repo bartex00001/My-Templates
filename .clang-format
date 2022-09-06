@@ -1,4 +1,4 @@
-﻿---
+---
 BasedOnStyle: Microsoft
 AccessModifierOffset: '-4'
 AlignAfterOpenBracket: AlwaysBreak
@@ -14,12 +14,12 @@ SpaceBeforeParens: Never
 SpaceInEmptyParentheses: 'false'
 SpacesInAngles: 'true'
 SpaceInEmptyBlock: 'true'
+SortIncludes: CaseSensitive
+SortUsingDeclarations: 'false'
 TabWidth: '4'
 UseTab: ForContinuationAndIndentation
 SpacesInLineCommentPrefix:
   Minimum: 1
   Maximum: 1
-BreakBeforeConceptDeclarations: Allowed
-BreakConstructorInitializersStyle: AfterColon
-BreakInheritanceListStyle: AfterComma
-...
+BreakConstructorInitializers: AfterColon
+BreakInheritanceList: AfterComma
