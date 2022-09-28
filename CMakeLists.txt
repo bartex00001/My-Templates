@@ -36,6 +36,11 @@ FetchContent_MakeAvailable(googletest)
 # Fetch additional modules here
 # ...
 
+
+# Add boost
+# find_package(Boost 1.67.0 REQUIRED)
+# include_directories(${Boost_INCLUDE_DIRS})
+
 add_subdirectory(src)
 
 add_subdirectory(apps)
