@@ -11,6 +11,6 @@ Templates are build following the structure presented in ["An Introduction to Mo
 
 ## List of templates
 
-- [simple fetch](https://github.com/bartex00001/CMake-templates/tree/fetch-googletest)
+- [fetch googletest](https://github.com/bartex00001/CMake-templates/tree/fetch-googletest)
 
-- [simple submodule](https://github.com/bartex00001/CMake-templates/tree/submodule-googletest)
+- [submodule googletest](https://github.com/bartex00001/CMake-templates/tree/submodule-googletest)
