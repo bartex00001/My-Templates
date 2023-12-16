@@ -1,9 +1,7 @@
 # CMake Templates
 
-Templates for creating CMake projects.  
-Every template contains an example of static library, executable, and tests.
-
-All templates feature googletest connected to CTest.
+Templates for creating C/C++ projects with CMake.  
+Every template contains an example, but those are kept at a minimum (only an executable and a static library).
 
 ## Structure of templates
 
@@ -14,3 +12,6 @@ Templates are build following the structure presented in ["An Introduction to Mo
 - [fetch googletest](https://github.com/bartex00001/CMake-templates/tree/fetch-googletest)
 
 - [submodule googletest](https://github.com/bartex00001/CMake-templates/tree/submodule-googletest)
+
+- [pico-sdk app](https://github.com/bartex00001/CMake-templates/tree/pico_sdk)
+  
