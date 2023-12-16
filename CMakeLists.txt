@@ -34,6 +34,12 @@ include(FetchContent)
 # find_package(Boost 1.67.0 REQUIRED)
 # include_directories(${Boost_INCLUDE_DIRS})
 
+
+# Add SDL2
+# find_package(SDL2 REQUIRED)
+# include_directories(${SDL2_INCLUDE_DIRS})
+
+
 # Automatically download and update submodules
 find_package(Git QUIET)
 if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
@@ -50,8 +56,8 @@ if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
 	endif()
 endif()
 
-add_subdirectory(src)
 
+add_subdirectory(src)
 add_subdirectory(apps)
 
 
