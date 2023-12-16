@@ -39,7 +39,7 @@ FetchContent_MakeAvailable(googletest)
 
 # Add boost
 # find_package(Boost 1.67.0 REQUIRED)
-# include_directories(${Boost_INCLUDE_DIRS})\
+# include_directories(${Boost_INCLUDE_DIRS})
 
 # Add SDL2
 # find_package(SDL2 REQUIRED)
