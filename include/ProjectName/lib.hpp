@@ -1,8 +1,10 @@
 #pragma once
 
-namespace ProjectName
+
+namespace someNamespace
 {
-    
-int square(int n);
+
+void initLed();
+void blinkLed(bool value);
 
 }

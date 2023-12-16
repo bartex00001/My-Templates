@@ -12,10 +12,12 @@ file(GLOB_RECURSE
 
 add_library(exLibrary ${SRC_LIST} ${HEADER_LIST})
 
-
 target_include_directories(exLibrary PUBLIC ../include)
 
-# Link your library to the other ones, for example boost
-#target_link_libraries(exLibrary PRIVATE Boost::boost)
+target_link_libraries(exLibrary
+        pico_stdlib
+		pico_unique_id)
+		# tinyusb_device
+		# tinyusb_board)
 
 target_compile_features(exLibrary PUBLIC cxx_std_20)

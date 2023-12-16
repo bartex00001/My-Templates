@@ -1,51 +1,37 @@
 set(CMAKE_REQUIRED_VERSION 3.14)
 cmake_minimum_required(VERSION ${CMAKE_REQUIRED_VERSION})
 
-project(
-    Template 
-    LANGUAGES CXX 
-    VERSION 0.1 
-    DESCRIPTION "A template for cmake projects")
 
-# Set global properties and tests only in the root of the project
+project(Template 
+    LANGUAGES C CXX ASM
+    VERSION 0.0.1
+    DESCRIPTION "Template for Raspberry Pi Pico projects")
+
+# Set global properties only in the root of the project
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     set(CMAKE_CXX_EXTENSIONS OFF)
     
     set_property(GLOBAL PROPERTY USE_FOLDERS ON)
-
-    # Disable targets created by CTest
-    set_property(GLOBAL PROPERTY CTEST_TARGETS_ADDED 1)
-
-    # Set global project properties here
-    # ...
-
-    include(CTest)
 endif()
 
-include(FetchContent)
 
-# Add googletest
-FetchContent_Declare(
-  googletest
-  GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG        release-1.12.1
-)
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
+# Initialise pico_sdk from installed location
+# set(PICO_SDK_PATH "/usr/lib/pico-sdk")
+# Or fetch and install Pico SDK from git
+set(PICO_SDK_FETCH_FROM_GIT on)
 
-# Fetch additional modules here
-# ...
+set(PICO_BOARD pico CACHE STRING "Board type")
 
+include(pico_sdk_import.cmake)
 
-# Add boost
-# find_package(Boost 1.67.0 REQUIRED)
-# include_directories(${Boost_INCLUDE_DIRS})
+if (PICO_SDK_VERSION_STRING VERSION_LESS "1.4.0")
+  message(FATAL_ERROR "Raspberry Pi Pico SDK version 1.4.0 (or later) required. Your version is ${PICO_SDK_VERSION_STRING}")
+endif()
 
-add_subdirectory(src)
+add_compile_definitions(CFG_TUSB_CONFIG_FILE="KeyboardDriver/tusb_config.h")
+
+pico_sdk_init()
+
 
 add_subdirectory(apps)
-
-# Add tests only from root
-if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
-    add_subdirectory(tests)
-endif()
+add_subdirectory(src)

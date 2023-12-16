@@ -1,3 +1,3 @@
-# CMake template - fetch
+# Pico-SDK template project
 
-The easiest way to use googletest.
+The project is meant to be built on linux with a GCC for arm compiler.
