@@ -82,6 +82,7 @@ plugins=(
     pip
     zsh-autosuggestions
     zsh-syntax-highlighting
+    colored-man-pages
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -97,7 +98,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='nvim'
 fi
 
 . "$HOME/.cargo/env"
@@ -122,12 +123,3 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias sl=ls
-
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-eval $(opam env)
-
-eval "$(zoxide init bash)"
-
-
