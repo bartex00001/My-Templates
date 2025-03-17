@@ -1,0 +1,4 @@
+theme = "rose_pine"
+
+[editor.cursor-shape]
+insert = "bar"
