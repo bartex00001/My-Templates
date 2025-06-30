@@ -8,17 +8,24 @@ input type:keyboard {
     xkb_layout pl
 }
 
+input * {
+    xkb_options "caps:swapescape"
+}
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
+
 # Your preferred terminal emulator
 set $term xfce4-terminal
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -29,11 +36,9 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/bart/Pictures/Wallpaper/yosemite-spring.jpg fill
+output * bg #000000 solid_color
 #
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+# Example configuration: output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -87,11 +92,14 @@ exec swayidle -w \
     # mouse button for dragging.
     floating_modifier $mod normal
 
+    bindsym $mod+Shift+b bar mode toggle
+
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
 #
 # Moving around:
 #
@@ -116,6 +124,7 @@ exec swayidle -w \
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
 #
 # Workspaces:
 #
@@ -143,6 +152,7 @@ exec swayidle -w \
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
 #
 # Layout stuff:
 #
@@ -168,6 +178,7 @@ exec swayidle -w \
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
 #
 # Scratchpad:
 #
@@ -180,6 +191,7 @@ exec swayidle -w \
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
 #
 # Resizing containers:
 #
@@ -210,6 +222,8 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
+    mode dock
+    
     position top
 
     font "JetBrainsMono Nerd Font"
@@ -219,12 +233,12 @@ bar {
     status_command while date +[$(cat /sys/class/power_supply/BATT/capacity)%]'\t%Y-%m-%d %I:%M %p'; do sleep 20; done
 
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        statusline #e0def4
+        background #191724
+        inactive_workspace #32323200 #32323200 #6e6a86
     }
 }
 
-default_border pixel
+default_border none
 
 include /etc/sway/config.d/*
